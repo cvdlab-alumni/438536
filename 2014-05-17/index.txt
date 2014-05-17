@@ -1,0 +1,26 @@
+Temple Of Agrigento <BR>
+
+Davide Morgagni <BR>
+
+438536 <BR>
+
+Documentation: <BR>
+<a href="images/1.png">Image1</a>
+<a href="images/2.png">Image2</a>
+<a href="images/3.png">Image3</a>
+<a href="images/4.png">Image4</a>
+<a href="images/5.png">Image5</a>
+<a href="images/6.png">Image6</a>
+<a href="images/7.png">Image7</a>
+<a href="images/8.png">Image8</a>
+<a href="images/9.png">Image9</a>
+<a href="images/10.png">Image10</a>
+<a href="images/11.png">Image11</a>
+
+<BR>
+Exercise: <BR>
+
+<a href="python/exercise1.py">Exercise1</a>
+<a href="python/exercise2.py">Exercise2</a>
+<a href="python/exercise3.py">Exercise3</a>
+<a href="python/exercise4.py">Exercise4</a>
