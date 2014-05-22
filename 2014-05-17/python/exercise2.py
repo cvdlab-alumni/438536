@@ -357,31 +357,67 @@ hpc = cellNumbering (master,hpc)(range(len(master[1])),CYAN,8)
 
 
 casa= COLOR(WHITE)(STRUCT(MKPOLS(master)))
-giardino = COLOR(GREEN)(CUBOID([140,100,3 ]))
-giardino = T([1,2])([-25,-8])(giardino)
-struttura = ( STRUCT([giardino, casa]) )
+casa2 = T(1)(170)(S(1)(-1)(casa))  #specchiare casa
+
+giardino = COLOR(GREEN)(CUBOID([220,100,3 ]))
+giardino = T([1,2,3])([-25,-8,-3])(giardino)
+struttura = ( STRUCT([casa, casa2]) )
 
 VIEW(struttura)
 
-duepiano = T(3)(29)(casa)
+duepiano = T(3)(29)(struttura)
 struttura =STRUCT([struttura,duepiano])
 VIEW(struttura)
 
-soffitto = CUBOID([90,95,3 ])
+
+
+muro_dietro = CUBOID([16,2,58 ])
+muro_dietro = COLOR(WHITE)(T([1])([78])(muro_dietro))
+struttura = STRUCT([struttura,muro_dietro])
+
+glass = [0.1,0.2,0.47,1,  0,0,0,0.48,  2,2,2,1, 0,0,0,1, 50]
+
+muro_avanti = CUBOID([14,2,29 ])
+muro_avanti = MATERIAL(glass)(T([1,2,3])([78,75,29])(muro_avanti)) #VETROOOOOOO
+struttura = STRUCT([struttura,muro_avanti])
+
+
+base = CUBOID([42,77,2])
+base = COLOR(WHITE)(T([1])([64])(base))
+
+pianerottolo = CUBOID([14,75,2])
+pianerottolo = COLOR(WHITE)(T([1,3])([78,29])(pianerottolo))
+struttura= STRUCT ([struttura,pianerottolo,base])
+pianerottolo_dx = CUBOID([14,75,2])
+pianerottolo_dx = COLOR(WHITE)(T([1,3])([92,29])(pianerottolo_dx))
+struttura= STRUCT ([struttura,pianerottolo_dx])
+pianerottolo_sx= CUBOID([14,6,2])
+pianerottolo_sx = COLOR(WHITE)(T([1,2,3])([64,14,29])(pianerottolo_sx))
+
+ghiera= CUBOID([1,33,10])
+ghiera = COLOR(RED)(T([1,2,3])([77,20,28])(ghiera))
+
+
+
+
+scalino= CUBOID([14,1,1])
+scalino = COLOR(RED)(T([1,2,3])([64,20,28])(scalino))
+scalinata=STRUCT([scalino, T([2,3])([1,-1])]*27)
+struttura= STRUCT ([struttura,pianerottolo_dx, scalinata,pianerottolo_sx,ghiera])
+
+
+VIEW(struttura)
+
+
+soffitto = CUBOID([180,95,3 ])
+
 
 soffitto = COLOR(RED)(T([1,2,3])([-4,-6,58])(soffitto))
-struttura = STRUCT([struttura,soffitto])
-
-
-VIEW(struttura)
-
-pianerottolo = CUBOID([10,10,2])
-pianerottolo = COLOR(WHITE)(T([1,2,3])([78,2,29])(pianerottolo))
-struttura= STRUCT ([struttura,pianerottolo])
-
+struttura = STRUCT([struttura,soffitto, giardino])
 
 scala =T([1,2])([88,-1])(STRUCT(MKPOLS(spiralStair(2, 8, 5, 1, 25, 2.5, 35))))
-struttura = STRUCT([struttura,scala])
+#struttura = STRUCT([struttura,scala])
 
 
 VIEW(struttura)
+
